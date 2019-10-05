@@ -1,0 +1,39 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+
+<div>
+    <section>
+        <button [routerLink]="['/CreateUser']">Create User</button>
+    </section>
+    <section>
+        <table>
+            <thead>
+                    <tr>
+                      <th *ngFor='let name of header'>{{  name }}</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor='let user of listedUser'>
+                      <td *ngFor='let key of header'>{{  user[key] }} </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </section>
+</div>
