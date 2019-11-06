@@ -1,12 +1,14 @@
+
 <style>
         input, select {
           width: 60%;
-          padding: 12px 20px;
+          padding: 20px 40px;
           margin: 8px 0;
           display: inline-block;
           border: 1px solid #ccc;
           border-radius: 4px;
           box-sizing: border-box;
+          
         }
         
         button {
@@ -27,42 +29,69 @@
         div {
           border-radius: 5px;
           background-color: #f2f2f2;
-          padding: 20px;
+          padding: 100px 100px;
           text-align: center;
           position: absolute;
-          left: 40%;
+          left: 30%;
         }
         h1{text-align: center;
         left:50%}
+        
         </style>
+        
 
 <h1>CRAYON'D ASSINMENT</h1>
 <div>
     <form>
+      
         FirstName:<input type="text" [(ngModel)]='user.FirstName' name='first'/><br>
         LastName:<input type="text" [(ngModel)]='user.LastName' name='last'/><br>
         Father_name:<input type="text" [(ngModel)]='user.Father_name' name='Father_name'/><br>
-        Age:<input type="number" [(ngModel)]='user.Age' name='Age'/><br>
-        
-        Gender:
-        <input type="radio" [(ngModel)]='user.Gender' name="gender" value="male">Male
-        <input type="radio" [(ngModel)]='user.Gender' name="gender" value="female">Female
-        <input type="radio" [(ngModel)]='user.Gender' name="gender" value="other">Other<br>
-        
-        Education:<input [(ngModel)]='user.Education' name='Education'/><br>
+        Age   :<input type="number" onKeyPress="if(this.value.length==2) return false;" [(ngModel)]='user.Age' name='Age'/><br>
+        <p>Gender:</p> 
+        <table border="0" align="center">
+         
+            
+            <tr>
+            <td><input type="radio" [(ngModel)]='user.Gender' name="gender" value="male">Male<br></td>
+             <td> <input type="radio" [(ngModel)]='user.Gender' name="gender" value="female">Female<br></td>
+             <td> <input type="radio" [(ngModel)]='user.Gender' name="gender" value="other">Other<br></td>
+          </tr> 
+
+        </table>
+       
+        Education: {{ user.Education}}
+
+        <select [(ngModel)]='user.Education' name='Education' >
+            <option value=""></option>
+            <option  value="B.E">B.E</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Arts">Arts</option>
+            <option value="Other">Other</option>
+          </select>
+          <br>
         College_name:<input  type="text"  [(ngModel)]='user.College_name' name='College_name'/><br>
-        Year:<input type="number" [(ngModel)]='user.Year' name='Year'/><br>
+        Year:<input type="number" onKeyPress="if(this.value.length==4) return false;"[(ngModel)]='user.Year' name='Year'/><br>
         Country:<input [(ngModel)]='user.Country' name='Country'/><br>
         City:<input [(ngModel)]='user.City' name='City'/><br>
         Address:<input [(ngModel)]='user.Address' name='Address'/><br>
         Lane:<input [(ngModel)]='user.Lane' name='Lane'/><br>
-        Pincode:<input type="number" [(ngModel)]='user.Pincode' name='Pincode'/><br>
-        Mobile_no:<input type='number' [(ngModel)]='user.Mobile_no' name='Mobile_no'/><br>
+        Pincode:<input type="number" onKeyPress="if(this.value.length==6) return false;"[(ngModel)]='user.Pincode' name='Pincode'/><br>
+        Mobile_no:<input type='number'  onKeyPress="if(this.value.length==10) return false;" [(ngModel)]='user.Mobile_no' name='Mobile_no'/><br>
         Mail_id:<input type="email" [(ngModel)]='user.Mail_id' name='Mail_id'/><br>
-        Password:<input type="password" [(ngModel)]='user.Password' name='Password'/><br>
-        Conform_password:<input  type='password' [(ngModel)]='user.Conform_password' name='Conform_password'/><br>
+        Password:<input type="password" onKeyPress="if(this.value.length==8) return false;" [(ngModel)]='user.Password' name='Password' /><br>
+        Conform_pass:<input  type='password' onKeyPress="if(this.value.length==8) return false;" (blur)="verify()" [(ngModel)]='user.Conform_password' name='Conform_password'/><br>
+        
+        
         
         <button (click)='saveUser()'>save</button>
-        
+        <br>
+        <br>
+      
+       
     </form>
+    
+
 </div>
+
+
